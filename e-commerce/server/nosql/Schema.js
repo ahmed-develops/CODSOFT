@@ -29,6 +29,14 @@ const userSchema = mongoose.Schema({
 });
 
 const productSchema = mongoose.Schema({
+    _id: {
+        required: false,
+        type: String
+    },
+    id: {
+        required: true,
+        type: String
+    },
     image: {
         required: true,
         type: String
@@ -44,6 +52,6 @@ const productSchema = mongoose.Schema({
 })
 
 const User = mongoose.model('USER', userSchema);
-const Product = mongoose.model('PRODUCTS', productSchema);
+const Product = mongoose.model('PRODUCT', productSchema);
 
-module.exports = User, Product;
+module.exports = {User, Product};

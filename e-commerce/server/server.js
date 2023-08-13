@@ -3,8 +3,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const ecommerce = express();
 const mongoose = require('mongoose');
-const User = require('./nosql/Schema');
-const Product = require('./nosql/Schema');
+const {User, Product} = require('./nosql/Schema');
 ecommerce.use(cors());
 ecommerce.use(express.json());
 dotenv.config();
@@ -64,9 +63,11 @@ ecommerce.post('/sign-up/:name/:email/:password/:confirmPassword/:mobileNumber/:
 ecommerce.get('/marketplace', async (req, res) => {
     try {
         const allProducts = await Product.find();
+        const tallProducts = Array.from(allProducts);
+        // console.log(tallProducts);
 
         if (allProducts) {
-            res.status(200).json({status:200, allProducts:allProducts});
+            res.status(200).json(tallProducts);
         }
         else {
             res.status(409).json({status:409, msg: 'No product found'});
