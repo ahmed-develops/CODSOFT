@@ -1,10 +1,14 @@
+import { useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
+
 const LandingPage = () => {
+    const location = useLocation();
+    const state = location.state;
     return (
         <>
-            <Navbar/>
+            <Navbar state={state}/>
             <Footer/>
         </>
     );

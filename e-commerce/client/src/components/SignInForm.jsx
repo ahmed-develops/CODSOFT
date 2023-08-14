@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const SignInForm = () => {
     const navigate = useNavigate();
@@ -22,7 +23,8 @@ const SignInForm = () => {
                 const data = await res.json();
 
                 if (data.status === 200) {
-                    navigate('/marketplace');
+                    
+                    navigate('/')
                 }
                 else if (data.status === 408) {
                     alert('Email does not exist!');
@@ -59,7 +61,7 @@ const SignInForm = () => {
                                 <label for="password" className="leading-7 text-sm text-gray-600">Password</label>
                                 <input type="current-password" id="password" name="password" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                             </div>
-                            <NavLink className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" onClick={signInForm}>Submit</NavLink>
+                            <NavLink className='text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg' onClick={signInForm}>Submit</NavLink>
                         </div>
                     </div>
                 </section>

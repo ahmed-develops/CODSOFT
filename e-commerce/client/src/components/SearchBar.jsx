@@ -1,7 +1,6 @@
 import '../style.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ProductPage from '../pages/ProductPage';
 
 const SearchBar = () => {
     const [products, setProducts] = useState([]);
@@ -31,26 +30,6 @@ const SearchBar = () => {
         getProducts();
     }, []);
 
-    const handleClick = (val) => {
-        const newState = {
-            id: val.id,
-            image: val.image,
-            title: val.title,
-            price: val.price,
-            category: val.category
-        }
-        setProductState(newState);
-        // setProductState({
-        //     id: val.id,
-        //     image: val.image,
-        //     title: val.title,
-        //     price: val.price,
-        //     category: val.category
-        // });
-        // console.log(productState.id);
-        navigate('/product-page', { state: productState });
-    };
-
     return (
         <>
             <div className="templateContainer">
@@ -76,24 +55,7 @@ const SearchBar = () => {
                                     className="mt-4"
                                     style={{ paddingBottom: '75px', paddingInline: '25px' , width: '300px' , height: '300px !important'}}
                                     key={val.id}
-                                    // onClick={ async () => handleClick(val) }
                                     onClick={ () => {
-                                        // const newState = {
-                                        //     id: val.id,
-                                        //     image: val.image,
-                                        //     title: val.title,
-                                        //     price: val.price,
-                                        //     category: val.category
-                                        // }
-                                        // setProductState(newState);
-                                        // // setProductState({
-                                        // //     id: val.id,
-                                        // //     image: val.image,
-                                        // //     title: val.title,
-                                        // //     price: val.price,
-                                        // //     category: val.category
-                                        // // });
-                                        // // console.log(productState.id);
                                         navigate('/product-page', { state: val });
                                     }}
                                 >

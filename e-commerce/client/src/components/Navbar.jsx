@@ -52,12 +52,12 @@ const Navbar = () => {
                     <div className="navbar-end">
                         <div className="navbar-item">
                             <div className="buttons">
-                                <NavLink className="button is-light" to='/sign-in'>
+                                <a className="button is-light" href='/sign-in'>
                                     Sign In
-                                </NavLink>
-                                <NavLink className="button is-primary" to='/sign-up'>
+                                </a>
+                                <a className="button is-primary" href='/sign-up'>
                                     Sign Up
-                                </NavLink>
+                                </a>
                             </div>
                         </div>
                     </div>
